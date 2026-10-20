@@ -27,11 +27,28 @@ services:
 
   frontend:
     image: ghcr.io/nanasinogonbei-493561/crm_register-frontend:latest
-    ports:
-      - "80:80"
+    # 外部公開は caddy が担当する（frontend はコンテナ間通信のみ）
     depends_on:
       - backend
     restart: unless-stopped
 
+  # HTTPS 終端。Let's Encrypt の証明書を自動で取得・更新する
+  caddy:
+    image: caddy:2.10
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      # 証明書の保存先。消すと再発行になり、Let's Encrypt のレート制限に当たりうる
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - frontend
+    restart: unless-stopped
+
 volumes:
   db-data:
+  caddy-data:
+  caddy-config:

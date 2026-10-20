@@ -4,6 +4,11 @@
 
 **URL**: https://crmregister.nanasinogonbei.com/
 
+| ログイン情報 | |
+|---|---|
+| メールアドレス | `testusername@gmail.com` |
+| パスワード | `e1IPfcaujDjlhFj4550-x9zp9tmH` |
+
 > **開発状況**: 現在実装済みなのは認証(ログイン / JWT)とユーザー管理です。顧客管理・問い合わせ管理などの機能は [docs/](docs/) の設計に沿って今後実装します。
 
 ## 技術スタック

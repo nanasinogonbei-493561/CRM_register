@@ -40,8 +40,7 @@ export function Header({ showAuth = true }: HeaderProps) {
             to="/"
             className="font-logo text-[28px] leading-none font-bold tracking-[0.3em] md:-mr-[0.3em] md:text-[46px]"
           >
-            SAMPLE
-            <span className="font-en text-lg font-normal tracking-normal md:text-[30px]">.jp</span>
+            CRM
           </Link>
 
           {showAuth ? (

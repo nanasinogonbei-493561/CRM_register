@@ -1,0 +1,5 @@
+# HTTP (80) へのアクセスは自動で HTTPS にリダイレクトされる
+crmregister.nanasinogonbei.com {
+	encode gzip
+	reverse_proxy frontend:80
+}
